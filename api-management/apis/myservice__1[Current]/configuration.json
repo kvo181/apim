@@ -1,0 +1,104 @@
+{
+  "id": "/apis/myservice",
+  "name": "myservice",
+  "apiRevision": "1",
+  "$ref-description": null,
+  "serviceUrl": "https://dwgpoctest.servicebus.windows.net/dwgpocrelay",
+  "path": "",
+  "protocols": [
+    "https"
+  ],
+  "authenticationSettings": {
+    "oAuth2": null,
+    "openid": null
+  },
+  "subscriptionKeyParameterNames": {
+    "header": "Ocp-Apim-Subscription-Key",
+    "query": "subscription-key"
+  },
+  "type": "soap",
+  "isCurrent": true,
+  "operations": [
+    {
+      "id": "/apis/myservice/operations/5bc5f852ccb7611378d4ef91",
+      "name": "FindRequest",
+      "method": "POST",
+      "urlTemplate": "/?soapAction=http://mynamespace/MyService/FindRequest",
+      "templateParameters": [],
+      "$ref-description": null,
+      "request": {
+        "$ref-description": "api-management/apis/myservice__1[Current]/operations/POST___soapAction=http___m1K7QZ62.request.html",
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "text/xml",
+            "$ref-sample": "api-management/apis/myservice__1[Current]/operations/POST___soapAction=http___m1K7QZ62.request.text_xml.html",
+            "schemaId": "66cc92c5-5491-4481-bfd9-be8a8a35c9e9",
+            "typeName": "MyServiceFindRequestRequest"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/myservice__1[Current]/operations/POST___soapAction=http___m1K7QZ62.response.200.description.html",
+          "representations": [
+            {
+              "contentType": "text/xml",
+              "$ref-sample": "api-management/apis/myservice__1[Current]/operations/POST___soapAction=http___m1K7QZ62.response.200.text_xml.html",
+              "schemaId": "66cc92c5-5491-4481-bfd9-be8a8a35c9e9",
+              "typeName": "MyServiceFindRequestResponse"
+            }
+          ],
+          "headers": []
+        }
+      ],
+      "policies": null
+    }
+  ],
+  "apiSchemas": [
+    {
+      "id": "/apis/myservice/schemas/34df5f74-f856-4aa9-99bf-6d6ccce278e0",
+      "contentType": "application/vnd.ms-azure-apim.xsd+xml",
+      "$ref-documentValue": "api-management/apis/myservice__1[Current]/apiSchemas/34df5f74-f856-4aa9-99bf-6d17KZWEW.document"
+    },
+    {
+      "id": "/apis/myservice/schemas/3c9d587c-75fc-4434-9f0e-d11e1f26e49b",
+      "contentType": "application/vnd.ms-azure-apim.xsd+xml",
+      "$ref-documentValue": "api-management/apis/myservice__1[Current]/apiSchemas/3c9d587c-75fc-4434-9f0e-d1MALAZU.document"
+    },
+    {
+      "id": "/apis/myservice/schemas/66cc92c5-5491-4481-bfd9-be8a8a35c9e9",
+      "contentType": "application/vnd.ms-azure-apim.xsd+xml",
+      "$ref-documentValue": "api-management/apis/myservice__1[Current]/apiSchemas/66cc92c5-5491-4481-bfd9-be1XOU4LH.document"
+    },
+    {
+      "id": "/apis/myservice/schemas/7b764698-52ee-4e85-9882-5a55692b582f",
+      "contentType": "application/vnd.ms-azure-apim.xsd+xml",
+      "$ref-documentValue": "api-management/apis/myservice__1[Current]/apiSchemas/7b764698-52ee-4e85-9882-5a1M6MELM.document"
+    },
+    {
+      "id": "/apis/myservice/schemas/897404cb-86a6-4868-8609-0513a39894ea",
+      "contentType": "application/vnd.ms-azure-apim.xsd+xml",
+      "$ref-documentValue": "api-management/apis/myservice__1[Current]/apiSchemas/897404cb-86a6-4868-8609-052VPDFF.document"
+    },
+    {
+      "id": "/apis/myservice/schemas/9c415a3c-f76e-4b1a-a1d4-600a56175c4a",
+      "contentType": "application/vnd.ms-azure-apim.xsd+xml",
+      "$ref-documentValue": "api-management/apis/myservice__1[Current]/apiSchemas/9c415a3c-f76e-4b1a-a1d4-601LWYQZD.document"
+    },
+    {
+      "id": "/apis/myservice/schemas/c6feef95-3e14-447b-a9a1-c887ad4351cf",
+      "contentType": "application/vnd.ms-azure-apim.xsd+xml",
+      "$ref-documentValue": "api-management/apis/myservice__1[Current]/apiSchemas/c6feef95-3e14-447b-a9a1-c817MOHDU.document"
+    },
+    {
+      "id": "/apis/myservice/schemas/ddd924ba-a55b-4fcf-83fd-b799ef1c0889",
+      "contentType": "application/vnd.ms-azure-apim.xsd+xml",
+      "$ref-documentValue": "api-management/apis/myservice__1[Current]/apiSchemas/ddd924ba-a55b-4fcf-83fd-b71WZH9WP.document"
+    }
+  ],
+  "$ref-policy": "api-management/policies/apis/myservice__1[Current].xml",
+  "__GitModuleVersion": 15
+}

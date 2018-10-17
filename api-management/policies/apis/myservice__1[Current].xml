@@ -1,0 +1,41 @@
+<!--
+    IMPORTANT:
+    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.
+    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.
+    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.
+    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.
+    - To remove a policy, delete the corresponding policy statement from the policy document.
+    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.
+    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.
+    - Policies are applied in the order of their appearance, from the top down.
+    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.
+-->
+<policies>
+	<inbound>
+		<set-header name="ServiceBusAuthorization" exists-action="skip">
+			<value>@{
+            string resourceUri = (string) "{{sbRelayURI}}";
+            string keyName = (string) "{{sbRelayKeyName}}";
+            string key = (string) "{{sbRelayKeyValue}}";
+            System.TimeSpan sinceEpoch = System.DateTime.UtcNow - new System.DateTime(1970, 1, 1);
+            var week = 60 * 60 * 24 * 7;
+            var expiry = System.Convert.ToString((int)sinceEpoch.TotalSeconds + week);
+            string stringToSign = System.Uri.EscapeDataString(resourceUri) + "\n" + expiry;
+            System.Security.Cryptography.HMACSHA256 hmac = new System.Security.Cryptography.HMACSHA256(System.Text.Encoding.UTF8.GetBytes(key));
+            var signature = System.Convert.ToBase64String(hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToSign)));
+            var sasToken = System.String.Format("SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", System.Uri.EscapeDataString(resourceUri), System.Uri.EscapeDataString(signature), expiry, keyName);
+            return sasToken;
+            }</value>
+		</set-header>
+		<base />
+	</inbound>
+	<backend>
+		<base />
+	</backend>
+	<outbound>
+		<base />
+	</outbound>
+	<on-error>
+		<base />
+	</on-error>
+</policies>

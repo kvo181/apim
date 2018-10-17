@@ -1,0 +1,47 @@
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" xmlns:q1="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.AX.Framework.Services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apim-wsdltns="http://mynamespace">
+  <xsd:import namespace="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.AX.Framework.Services" />
+  <xsd:complexType name="AifFault">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="CustomDetailXml" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="FaultMessageListArray" nillable="true" type="tns:ArrayOfFaultMessageList" />
+      <xsd:element minOccurs="0" name="InfologMessageList" nillable="true" type="q1:ArrayOfInfologMessage" xmlns:q1="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.AX.Framework.Services" />
+      <xsd:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="XppExceptionType" type="xs:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AifFault" nillable="true" type="tns:AifFault" />
+  <xsd:complexType name="ArrayOfFaultMessageList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="FaultMessageList" nillable="true" type="tns:FaultMessageList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfFaultMessageList" nillable="true" type="tns:ArrayOfFaultMessageList" />
+  <xsd:complexType name="FaultMessageList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Document" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="DocumentOperation" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="FaultMessageArray" nillable="true" type="tns:ArrayOfFaultMessage" />
+      <xsd:element minOccurs="0" name="Field" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="Service" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="ServiceOperation" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="ServiceOperationParameter" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="XPath" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="XmlLine" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="XmlPosition" nillable="true" type="xs:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="FaultMessageList" nillable="true" type="tns:FaultMessageList" />
+  <xsd:complexType name="ArrayOfFaultMessage">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="FaultMessage" nillable="true" type="tns:FaultMessage" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfFaultMessage" nillable="true" type="tns:ArrayOfFaultMessage" />
+  <xsd:complexType name="FaultMessage">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xsd:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="FaultMessage" nillable="true" type="tns:FaultMessage" />
+</xsd:schema>

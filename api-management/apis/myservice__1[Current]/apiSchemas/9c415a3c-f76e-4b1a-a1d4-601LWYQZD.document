@@ -1,0 +1,41 @@
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apim-wsdltns="http://mynamespace">
+  <xsd:element name="anyType" nillable="true" type="xs:anyType" />
+  <xsd:element name="anyURI" nillable="true" type="xs:anyURI" />
+  <xsd:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+  <xsd:element name="boolean" nillable="true" type="xs:boolean" />
+  <xsd:element name="byte" nillable="true" type="xs:byte" />
+  <xsd:element name="dateTime" nillable="true" type="xs:dateTime" />
+  <xsd:element name="decimal" nillable="true" type="xs:decimal" />
+  <xsd:element name="double" nillable="true" type="xs:double" />
+  <xsd:element name="float" nillable="true" type="xs:float" />
+  <xsd:element name="int" nillable="true" type="xs:int" />
+  <xsd:element name="long" nillable="true" type="xs:long" />
+  <xsd:element name="QName" nillable="true" type="xs:QName" />
+  <xsd:element name="short" nillable="true" type="xs:short" />
+  <xsd:element name="string" nillable="true" type="xs:string" />
+  <xsd:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+  <xsd:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+  <xsd:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+  <xsd:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+  <xsd:element name="char" nillable="true" type="tns:char" />
+  <xsd:simpleType name="char">
+    <xsd:restriction base="xs:int" />
+  </xsd:simpleType>
+  <xsd:element name="duration" nillable="true" type="tns:duration" />
+  <xsd:simpleType name="duration">
+    <xsd:restriction base="xs:duration">
+      <xsd:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+      <xsd:minInclusive value="-P10675199DT2H48M5.4775808S" />
+      <xsd:maxInclusive value="P10675199DT2H48M5.4775807S" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="guid" nillable="true" type="tns:guid" />
+  <xsd:simpleType name="guid">
+    <xsd:restriction base="xs:string">
+      <xsd:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="FactoryType" type="xs:QName" />
+  <xsd:attribute name="Id" type="xs:ID" />
+  <xsd:attribute name="Ref" type="xs:IDREF" />
+</xsd:schema>

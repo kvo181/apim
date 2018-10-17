@@ -1,0 +1,182 @@
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dynamics.Ax.Application" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Dynamics.Ax.Application" xmlns:q3="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.Ax.Xpp" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apim-wsdltns="http://mynamespace">
+  <xsd:import namespace="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.Ax.Xpp" />
+  <xsd:complexType name="FindRequestArgs">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="q1:XppObjectBase" xmlns:q1="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.Ax.Xpp">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="RequestId" nillable="true" type="xs:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FindRequestArgs" nillable="true" type="tns:FindRequestArgs" />
+  <xsd:complexType name="ITP_DataContract">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="q2:XppObjectBase" xmlns:q2="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.Ax.Xpp">
+        <xsd:sequence />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ITP_DataContract" nillable="true" type="tns:ITP_DataContract" />
+  <xsd:complexType name="EntityPostalAddress">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns:ITP_DataContract">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AttentionToAddressLine" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="AttentionToAddressLine2" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="BuildingCompliment" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="CountryRegionId" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="County" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="District" type="xs:long" />
+          <xsd:element minOccurs="0" name="DistrictName" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="IsPrimary" type="q3:NoYes" xmlns:q3="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.Ax.Xpp" />
+          <xsd:element minOccurs="0" name="Location" type="xs:long" />
+          <xsd:element minOccurs="0" name="LocationName" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="PostBox" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="PostalAddress" type="xs:long" />
+          <xsd:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="StreetNumber" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="ValidFrom" type="xs:dateTime" />
+          <xsd:element minOccurs="0" name="ValidTo" type="xs:dateTime" />
+          <xsd:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EntityPostalAddress" nillable="true" type="tns:EntityPostalAddress" />
+  <xsd:complexType name="MeterDataInformation">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns:ITP_DataContract">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="MeterDataRegisterInformationList" nillable="true" type="tns:ArrayOfMeterDataRegisterInformation" />
+          <xsd:element minOccurs="0" name="MeterUnitNumber" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="NumberOfRegisters" type="xs:int" />
+          <xsd:element minOccurs="0" name="RegisterID" nillable="true" type="xs:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MeterDataInformation" nillable="true" type="tns:MeterDataInformation" />
+  <xsd:complexType name="ArrayOfMeterDataRegisterInformation">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="MeterDataRegisterInformation" nillable="true" type="tns:MeterDataRegisterInformation" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfMeterDataRegisterInformation" nillable="true" type="tns:ArrayOfMeterDataRegisterInformation" />
+  <xsd:complexType name="MeterDataRegisterInformation">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns:ITP_DataContract">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ConversionFactor" type="xs:decimal" />
+          <xsd:element minOccurs="0" name="EstimatedAnnualVolume" type="xs:decimal" />
+          <xsd:element minOccurs="0" name="MeasuringUnitId" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="MeterRegisterNumber" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="MeterTimeFrame" type="tns:IUS_MPO_MeterTimeFrames" />
+          <xsd:element minOccurs="0" name="MeterTimeFrameDescription" nillable="true" type="xs:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MeterDataRegisterInformation" nillable="true" type="tns:MeterDataRegisterInformation" />
+  <xsd:simpleType name="IUS_MPO_MeterTimeFrames">
+    <xsd:restriction base="xs:string">
+      <xsd:enumeration value="None" />
+      <xsd:enumeration value="MTF_B36_Exclusive_Night" />
+      <xsd:enumeration value="MTF_B37_Total_Hours" />
+      <xsd:enumeration value="MTF_B48_Not_Used" />
+      <xsd:enumeration value="MTF_E10_Low" />
+      <xsd:enumeration value="MTF_E11_High" />
+      <xsd:enumeration value="MTF_E12_Peak" />
+      <xsd:enumeration value="MTF_U00_Default_Time_To_Use" />
+      <xsd:enumeration value="MTF_NPH_None_Peak_High" />
+      <xsd:enumeration value="MTF_NPK_Non_Peak" />
+      <xsd:enumeration value="MTF_NPL_Non_Peak_Low" />
+      <xsd:enumeration value="MTF_PKH_Peak_High" />
+      <xsd:enumeration value="MTF_PKL_Peak_Low" />
+      <xsd:enumeration value="MTF_AMR_Defined" />
+      <xsd:enumeration value="MTF_Mm3" />
+      <xsd:enumeration value="MTF_T10_Low_Injection" />
+      <xsd:enumeration value="MTF_T11_High_Injection" />
+      <xsd:enumeration value="MTF_Cogeneration" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="IUS_MPO_MeterTimeFrames" nillable="true" type="tns:IUS_MPO_MeterTimeFrames" />
+  <xsd:complexType name="MeterReadingRequest">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns:ITP_DataContract">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CustAccountNum" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="MPODeliveryType" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="MPOEANCode" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="MPOMeteringPointId" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="MeterDataInformationList" nillable="true" type="tns:ArrayOfMeterDataInformation" />
+          <xsd:element minOccurs="0" name="PostalAddress" nillable="true" type="tns:EntityPostalAddress" />
+          <xsd:element minOccurs="0" name="Request" nillable="true" type="tns:MeterRequests" />
+          <xsd:element minOccurs="0" name="RequestType" type="tns:IUS_MRD_MeterReadingRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MeterReadingRequest" nillable="true" type="tns:MeterReadingRequest" />
+  <xsd:complexType name="ArrayOfMeterDataInformation">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="MeterDataInformation" nillable="true" type="tns:MeterDataInformation" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfMeterDataInformation" nillable="true" type="tns:ArrayOfMeterDataInformation" />
+  <xsd:complexType name="MeterRequests">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns:ITP_DataContract">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Channel" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="DateReceived" type="xs:dateTime" />
+          <xsd:element minOccurs="0" name="DateRequest" type="xs:dateTime" />
+          <xsd:element minOccurs="0" name="DateRequestCreated" type="xs:dateTime" />
+          <xsd:element minOccurs="0" name="DeliveryPoint" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="Group" type="xs:long" />
+          <xsd:element minOccurs="0" name="RecId" type="xs:long" />
+          <xsd:element minOccurs="0" name="Receiver" type="xs:long" />
+          <xsd:element minOccurs="0" name="RequestGenerationLogRefRecId" type="xs:long" />
+          <xsd:element minOccurs="0" name="RequestId" nillable="true" type="xs:string" />
+          <xsd:element minOccurs="0" name="RequestedDateTime" type="xs:dateTime" />
+          <xsd:element minOccurs="0" name="Status" type="tns:IUS_MRD_Status" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MeterRequests" nillable="true" type="tns:MeterRequests" />
+  <xsd:simpleType name="IUS_MRD_Status">
+    <xsd:restriction base="xs:string">
+      <xsd:enumeration value="None" />
+      <xsd:enumeration value="Pending" />
+      <xsd:enumeration value="Requested" />
+      <xsd:enumeration value="Received" />
+      <xsd:enumeration value="Rescheduled" />
+      <xsd:enumeration value="Failed" />
+      <xsd:enumeration value="Estimated" />
+      <xsd:enumeration value="Created" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="IUS_MRD_Status" nillable="true" type="tns:IUS_MRD_Status" />
+  <xsd:simpleType name="IUS_MRD_MeterReadingRequestType">
+    <xsd:restriction base="xs:string">
+      <xsd:enumeration value="None" />
+      <xsd:enumeration value="Event" />
+      <xsd:enumeration value="NonEvent" />
+      <xsd:enumeration value="SCC" />
+      <xsd:enumeration value="StatementCreation" />
+      <xsd:enumeration value="AgreementTermination" />
+      <xsd:enumeration value="PeriodicReading" />
+      <xsd:enumeration value="PredefinedReadingDate" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="IUS_MRD_MeterReadingRequestType" nillable="true" type="tns:IUS_MRD_MeterReadingRequestType" />
+  <xsd:complexType name="ArrayOfMeterReadingRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="MeterReadingRequest" nillable="true" type="tns:MeterReadingRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfMeterReadingRequest" nillable="true" type="tns:ArrayOfMeterReadingRequest" />
+</xsd:schema>
